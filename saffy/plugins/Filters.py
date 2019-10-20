@@ -28,7 +28,7 @@ class FiltersPlugin(PluginManager):
 		return b, a
 
 	def butter_highpass_filter(data, cutoff, fs, order=5, method=None):
-		b, a = _butter_highpass(cutoff, fs, order=order)
+		b, a = data._butter_highpass(cutoff, fs, order=order)
 		if method:
 			y = method(b, a, data)
 		else:
@@ -86,7 +86,7 @@ class FiltersPlugin(PluginManager):
 		return b, a
 
 	def butter_bandpass_filter(data, lowcut, highcut, fs, order=5, method=None):
-		b, a = _butter_bandpass(lowcut, highcut, fs, order=order)
+		b, a = data._butter_bandpass(lowcut, highcut, fs, order=order)
 		if method:
 			y = method(b, a, data)
 		else:
